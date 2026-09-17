@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Noto+Sans+Bengali:wght@100..900&family=Noto+Serif+Bengali:wght@100..900&display=swap');
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: "Inter", "Noto Sans Bengali", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Noto Serif Bengali", "Inter", "Noto Sans Bengali", ui-serif, Georgia, serif;
+
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-paper: var(--paper);
+  --color-paper-deep: var(--paper-deep);
+  --color-cream: var(--cream);
+  --color-forest: var(--forest);
+  --color-forest-bright: var(--forest-bright);
+  --color-gold: var(--gold);
+  --color-gold-deep: var(--gold-deep);
+}
+
+:root {
+  color-scheme: light;
+  --ink: #0f1419;
+  --ink-soft: #5c6570;
+  --paper: #f4f5f7;
+  --paper-deep: #e8eaee;
+  --cream: #ffffff;
+  --forest: #111827;
+  --forest-bright: #1f2937;
+  --gold: #9a7b4f;
+  --gold-deep: #7a613d;
+  --line: rgba(15, 20, 25, 0.08);
+  --shadow-card: 0 10px 30px rgba(15, 20, 25, 0.05);
+  --shadow-btn: 0 10px 22px rgba(17, 24, 39, 0.16);
+}
+
+.dark {
+  color-scheme: dark;
+  --ink: #f3f4f6;
+  --ink-soft: #9aa3af;
+  --paper: #0b0c10;
+  --paper-deep: #1b1e25;
+  --cream: #14161c;
+  --forest: #f3f4f6;
+  --forest-bright: #ffffff;
+  --gold: #d4b896;
+  --gold-deep: #c4a574;
+  --line: rgba(255, 255, 255, 0.08);
+  --shadow-card: 0 12px 32px rgba(0, 0, 0, 0.35);
+  --shadow-btn: 0 10px 24px rgba(0, 0, 0, 0.4);
+}
+
+html {
+  scrollbar-gutter: stable;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background: var(--paper);
+  font-family: var(--font-sans);
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+#root {
+  width: 100%;
+  max-width: none;
+  text-align: initial;
+  border: 0;
+  display: block;
+}
+
+.font-display {
+  font-family: var(--font-display), var(--font-sans);
+}
+
+.paper-grid {
+  background-image:
+    linear-gradient(to right, color-mix(in srgb, var(--ink) 5%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in srgb, var(--ink) 5%, transparent) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.shadow-card {
+  box-shadow: var(--shadow-card);
+}
+
+.shadow-btn {
+  box-shadow: var(--shadow-btn);
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.sidebar-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sidebar-scroll::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--ink) 18%, transparent);
+  border-radius: 99px;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0.001;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.rise {
+  animation: rise 0.45s ease both;
+}
